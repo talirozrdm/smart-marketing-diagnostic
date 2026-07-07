@@ -1,0 +1,1576 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>שיווק שאפשר להתמיד בו | טלי רוזנברג</title>
+  <meta name="description" content="אבחון קצר לשיווק חכם ובר-התמדה: מה עוצר את התנועה השיווקית שלך, ומה הצעד החכם הבא?">
+  <style>
+    :root {
+      --ink: #17324d;
+      --ink-soft: #36526d;
+      --rose: #b97882;
+      --rose-dark: #9d626c;
+      --rose-soft: #f5e4e5;
+      --cream: #fbf7f1;
+      --paper: #fffdf9;
+      --line: #eadfd5;
+      --sage: #8da69b;
+      --shadow: 0 18px 45px rgba(23, 50, 77, 0.09);
+      --soft-shadow: 0 10px 26px rgba(23, 50, 77, 0.07);
+      --radius: 20px;
+      --max: 920px;
+      font-family: "Assistant", "Segoe UI", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink-soft);
+      background:
+        radial-gradient(circle at top right, rgba(185, 120, 130, 0.13), transparent 34rem),
+        linear-gradient(180deg, var(--cream), #fffaf5 52%, #ffffff);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .page {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 22px 18px 34px;
+    }
+
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .logo-img {
+      display: none;
+      width: 126px;
+      height: auto;
+      max-height: 86px;
+      object-fit: contain;
+      border-radius: 18px;
+      background: rgba(255, 253, 249, 0.72);
+    }
+
+    .screen-logo {
+      display: none;
+      width: min(170px, 46vw);
+      height: auto;
+      margin: 0 0 16px;
+      object-fit: contain;
+      border-radius: 18px;
+      background: rgba(255, 253, 249, 0.78);
+    }
+
+    .screen-logo.visible {
+      display: block;
+    }
+
+    .screen-logo.compact {
+      width: 112px;
+      margin: 0;
+    }
+
+    .quiz-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .quiz-brand-row {
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .quiz-brand-text {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .logo-fallback {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      flex: 0 0 auto;
+      border: 1px solid rgba(185, 120, 130, 0.22);
+      border-radius: 18px;
+      color: var(--rose);
+      background: rgba(255, 253, 249, 0.78);
+      box-shadow: var(--soft-shadow);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-name {
+      margin: 0;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .brand-line {
+      margin: 2px 0 0;
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .header-card-link {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 7px 15px;
+      border: 1px solid rgba(185, 120, 130, 0.48);
+      border-radius: 999px;
+      color: var(--rose-dark);
+      background: rgba(245, 228, 229, 0.2);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.25;
+      transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+    }
+
+    .header-card-link:hover,
+    .header-card-link:focus-visible {
+      color: #ffffff;
+      background: var(--rose);
+      border-color: var(--rose);
+      outline: none;
+    }
+
+    .surface {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 253, 249, 0.86);
+      border: 1px solid rgba(234, 223, 213, 0.9);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .screen {
+      display: none;
+      padding: 28px 22px;
+    }
+
+    .screen.active {
+      display: block;
+      animation: fadeIn 210ms ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      margin: 0 0 14px;
+      padding: 5px 11px;
+      border: 1px solid rgba(185, 120, 130, 0.2);
+      border-radius: 999px;
+      color: var(--rose-dark);
+      background: rgba(245, 228, 229, 0.52);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .eyebrow::before {
+      content: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--ink);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(34px, 8.6vw, 62px);
+    }
+
+    h2 {
+      font-size: clamp(27px, 6.5vw, 42px);
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    .subtitle {
+      margin: 12px 0 0;
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .intro-copy {
+      max-width: 760px;
+      margin: 20px 0 0;
+      font-size: 17px;
+    }
+
+    .highlight {
+      display: inline-block;
+      margin-top: 16px;
+      padding-inline-start: 14px;
+      color: var(--ink);
+      border-inline-start: 3px solid var(--rose);
+      font-weight: 800;
+    }
+
+    #startScreen .actions {
+      margin-top: 24px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 22px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--ink);
+      background: #ffffff;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 9px 20px rgba(23, 50, 77, 0.08);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(23, 50, 77, 0.13);
+      outline: none;
+    }
+
+    .btn.primary {
+      color: #ffffff;
+      background: var(--rose);
+    }
+
+    .btn.primary:hover,
+    .btn.primary:focus-visible {
+      background: var(--rose-dark);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border: 1px solid rgba(185, 120, 130, 0.36);
+      box-shadow: none;
+    }
+
+    .btn.subtle {
+      color: var(--ink-soft);
+      background: transparent;
+      border: 1px solid rgba(23, 50, 77, 0.16);
+      box-shadow: none;
+    }
+
+    .btn[disabled] {
+      cursor: not-allowed;
+      opacity: 0.48;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .mini-card {
+      min-height: 78px;
+      padding: 13px 12px;
+      border: 1px solid rgba(234, 223, 213, 0.95);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .progress-wrap {
+      margin-bottom: 18px;
+    }
+
+    .progress-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .progress {
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #eee4dc;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--rose), var(--sage));
+      transition: width 220ms ease;
+    }
+
+    .question-card {
+      padding: 22px 18px 18px;
+      border: 1px solid rgba(234, 223, 213, 0.9);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .domain-note {
+      margin: 0 0 14px;
+      color: var(--rose-dark);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .question-meta {
+      margin: 10px 0 0;
+      color: #6a7b89;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .option {
+      position: relative;
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      min-height: 58px;
+      padding: 14px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      color: var(--ink-soft);
+      background: #ffffff;
+      text-align: right;
+      box-shadow: 0 7px 17px rgba(23, 50, 77, 0.045);
+    }
+
+    .option:focus-visible {
+      outline: 3px solid rgba(185, 120, 130, 0.24);
+    }
+
+    .option .mark {
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border: 1.5px solid #d7c8bd;
+      border-radius: 50%;
+      color: transparent;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .option.multi .mark {
+      border-radius: 8px;
+    }
+
+    .option.selected {
+      border-color: rgba(185, 120, 130, 0.72);
+      color: var(--ink);
+      background: #fff8f6;
+    }
+
+    .option.selected .mark {
+      color: #ffffff;
+      border-color: var(--rose);
+      background: var(--rose);
+    }
+
+    .option-text {
+      min-width: 0;
+      font-weight: 700;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .result-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .result-panel {
+      padding: 20px 18px;
+      border: 1px solid rgba(234, 223, 213, 0.92);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .result-panel.accent {
+      border-color: rgba(185, 120, 130, 0.28);
+      background: linear-gradient(180deg, #fffdf9, #fff7f5);
+    }
+
+    .result-panel p {
+      margin: 12px 0 0;
+    }
+
+    .result-blocks {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .result-block {
+      padding: 16px 15px;
+      border: 1px solid rgba(234, 223, 213, 0.92);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .result-block h3 {
+      font-size: 18px;
+    }
+
+    .result-block p {
+      margin-top: 9px;
+    }
+
+    .result-list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .result-list li {
+      position: relative;
+      margin-top: 9px;
+      padding-inline-start: 18px;
+    }
+
+    .result-list li::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: 0;
+      top: 0.72em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--rose);
+    }
+
+    .summary-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .summary-item {
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(234, 223, 213, 0.92);
+    }
+
+    .summary-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--rose-dark);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--ink);
+      background: #ffffff;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: rgba(185, 120, 130, 0.72);
+      box-shadow: 0 0 0 4px rgba(185, 120, 130, 0.12);
+    }
+
+    .field-help,
+    .field-error {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .field-help {
+      color: #74818c;
+    }
+
+    .field-error {
+      display: none;
+      color: var(--rose-dark);
+    }
+
+    .field-error.visible {
+      display: block;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .fine-print {
+      margin: 12px 0 0;
+      color: #74818c;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .thanks {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 18px;
+      color: var(--ink);
+      background: rgba(141, 166, 155, 0.16);
+      border: 1px solid rgba(141, 166, 155, 0.26);
+      font-weight: 700;
+    }
+
+    .thanks.visible {
+      display: block;
+    }
+
+    .confetti-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .confetti-dot {
+      position: absolute;
+      top: -14px;
+      width: var(--dot-size);
+      height: var(--dot-size);
+      border-radius: 999px;
+      background: var(--dot-color);
+      opacity: 0.94;
+      animation: confettiFall var(--fall-duration) ease-out forwards;
+      transform: translate3d(0, 0, 0);
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translate3d(0, -18px, 0) scale(0.85);
+        opacity: 0;
+      }
+      12% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate3d(var(--drift), 104vh, 0) scale(1);
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .confetti-dot {
+        animation: none;
+        display: none;
+      }
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    @media (min-width: 680px) {
+      .page {
+        padding: 34px 28px 50px;
+      }
+
+      .screen {
+        padding: 42px 40px;
+      }
+
+      .question-card,
+      .result-panel {
+        padding: 28px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-grid label.wide {
+        grid-column: 1 / -1;
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      body {
+        font-size: 16px;
+      }
+
+      .brand-bar {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px 12px;
+      }
+
+      .surface {
+        border-radius: 24px;
+      }
+
+      .page {
+        padding-top: 16px;
+      }
+
+      .brand-bar {
+        margin-bottom: 12px;
+      }
+
+      .logo-img {
+        width: 96px;
+        height: auto;
+        max-height: 70px;
+      }
+
+      .brand {
+        gap: 10px;
+        flex: 1 1 100%;
+      }
+
+      .brand-name {
+        font-size: 17px;
+      }
+
+      .brand-line {
+        font-size: 12px;
+      }
+
+      .header-card-link {
+        min-height: 32px;
+        padding: 6px 13px;
+        font-size: 13px;
+      }
+
+      #startScreen {
+        padding-top: 24px;
+      }
+
+      #startScreen .intro-copy {
+        margin-top: 16px;
+        font-size: 16px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .nav-row {
+        flex-direction: column-reverse;
+      }
+
+      .option {
+        min-height: 62px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="brand-bar" aria-label="טלי רוזנברג">
+      <div class="brand">
+        <img class="logo-img" id="logoImage" data-logo alt="טלי רוזנברג">
+        <div class="logo-fallback" id="logoFallback" aria-hidden="true">ט</div>
+        <div class="brand-text">
+          <p class="brand-name">טלי רוזנברג</p>
+          <p class="brand-line">שיווק דיגיטלי חכם לעסקים קטנים</p>
+        </div>
+      </div>
+      <a class="header-card-link" id="headerCardLink" href="#" target="_blank" rel="noopener">להכיר את טלי</a>
+    </header>
+
+    <section class="surface" aria-live="polite">
+      <div class="screen active" id="startScreen">
+        <p class="eyebrow">עסק קטן צריך שיווק חכם</p>
+        <h1>שיווק שאפשר להתמיד בו</h1>
+        <p class="subtitle">אבחון קצר לשיווק חכם ובר-התמדה</p>
+        <div class="intro-copy">
+          <p>הרבה בעלי עסקים חושבים שהבעיה היא שהם לא מתמידים מספיק בשיווק.</p>
+          <p>אבל לפעמים הבעיה היא לא חוסר התמדה - אלא שיווק שלא מתאים לעסק, לזמן ולאנרגיה שיש כרגע.</p>
+          <p>האבחון הזה יעזור לך להבין מה עוצר את התנועה השיווקית שלך, מה אפשר להוריד, ומה הצעד החכם הבא לחודש הקרוב.</p>
+        </div>
+        <strong class="highlight">לא עוד משימות. יותר בהירות.</strong>
+        <div class="actions">
+          <button class="btn primary" id="startBtn" type="button">לגלות מה עוצר את השיווק שלי</button>
+        </div>
+      </div>
+
+      <div class="screen" id="quizScreen">
+        <div class="quiz-brand-row" aria-label="טלי רוזנברג">
+          <img class="screen-logo compact" data-logo alt="טלי רוזנברג">
+          <span class="quiz-brand-text">שיווק דיגיטלי חכם לעסקים קטנים</span>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-row">
+            <span id="questionCounter">שאלה 1 מתוך 10</span>
+            <span id="progressPercent">10%</span>
+          </div>
+          <div class="progress" aria-hidden="true">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+        </div>
+
+        <article class="question-card">
+          <p class="domain-note" id="domainNote"></p>
+          <h2 id="questionTitle"></h2>
+          <p class="question-meta" id="questionMeta"></p>
+          <div class="options" id="optionsList"></div>
+        </article>
+
+        <div class="nav-row">
+          <button class="btn ghost" id="backBtn" type="button">חזרה לשאלה הקודמת</button>
+          <button class="btn primary" id="nextBtn" type="button" disabled>הבא</button>
+        </div>
+      </div>
+
+      <div class="screen" id="resultScreen">
+        <div class="result-layout">
+          <section class="result-panel accent">
+            <p class="eyebrow">הנה האבחון שלך</p>
+            <h2 id="resultTitle"></h2>
+            <div id="resultBody"></div>
+          </section>
+
+          <section class="result-panel">
+            <h3>מה עושים עכשיו?</h3>
+            <p>האבחון הזה הוא נקודת התחלה. אם יצאה לך תוצאה שמרגישה מדויקת, הצעד הבא הוא לא להעמיס עוד משימות, אלא לבחור פעולה אחת קטנה ונכונה לחודש הקרוב.</p>
+            <div class="summary-grid">
+              <div class="summary-item">
+                <span class="summary-label">התחום המרכזי שלך</span>
+                <span id="summaryName"></span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">הפעולה שכדאי להוריד</span>
+                <span id="summaryRemove"></span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">הפעולה שכדאי לעשות השבוע</span>
+                <span id="summaryWeek"></span>
+              </div>
+            </div>
+          </section>
+
+          <section class="result-panel">
+            <h3>רוצה לקבל את האבחון שלך בצורה מסודרת?</h3>
+            <p>אפשר לשלוח לעצמך את סיכום האבחון וההמלצות בוואטסאפ, כדי שיהיה לך קל לחזור לזה אחר כך.</p>
+            <form id="detailsForm">
+              <div class="form-grid">
+                <label>
+                  שם מלא
+                  <input name="fullName" autocomplete="name">
+                </label>
+                <label>
+                  שם העסק
+                  <input name="businessName" autocomplete="organization">
+                </label>
+                <label>
+                  מספר וואטסאפ לשליחת האבחון לעצמך
+                  <input name="contact" id="contactInput" autocomplete="tel" placeholder="לדוגמה: 050-0000000">
+                  <span class="field-help">המספר משמש רק לפתיחת הודעת וואטסאפ עם סיכום האבחון. הוא לא נשמר ולא נשלח לטלי אוטומטית.</span>
+                  <span class="field-error" id="contactError" role="alert"></span>
+                </label>
+                <label>
+                  תחום פעילות העסק
+                  <select name="businessType" id="businessTypeSelect">
+                    <option value="">בחירה מהרשימה</option>
+                    <option>שירות מקצועי</option>
+                    <option>טיפול / אימון / ייעוץ</option>
+                    <option>חנות / מוצר פיזי</option>
+                    <option>אוכל / קפה / מסעדה</option>
+                    <option>עיצוב / אסתטיקה / סטודיו</option>
+                    <option>עסק מקומי</option>
+                    <option>אחר</option>
+                  </select>
+                </label>
+                <label class="wide" id="otherBusinessWrap" hidden>
+                  נא לכתוב את תחום הפעילות שלך
+                  <textarea name="otherBusinessType" id="otherBusinessInput" placeholder="לדוגמה: צילום, הפקת אירועים, אדריכלות, חינוך, שירות טכני, קהילה ועוד"></textarea>
+                </label>
+                <label class="wide">
+                  מה הכי היית רוצה לשפר בשיווק בחודש הקרוב?
+                  <select name="improve">
+                    <option value="">בחירה מהרשימה</option>
+                    <option>יותר בהירות במסר</option>
+                    <option>יותר סדר ועדיפויות</option>
+                    <option>יותר עקביות בתוכן</option>
+                    <option>יותר פניות</option>
+                    <option>פחות עומס</option>
+                    <option>חלוקת עבודה נכונה</option>
+                    <option>להבין איפה להשקיע</option>
+                  </select>
+                </label>
+              </div>
+              <p class="fine-print">אין כאן חיבור למערכת דיוור או Backend. המספר שהזנת משמש רק לפתיחת הודעת וואטסאפ עם סיכום האבחון עבורך, ולא נשלח לטלי אוטומטית.</p>
+              <div class="actions">
+                <button class="btn primary" id="selfWhatsappBtn" type="button">שליחת האבחון לעצמי בוואטסאפ</button>
+                <a class="btn ghost" id="businessCardBtn" href="#" target="_blank" rel="noopener">להיכרות נוספת עם טלי</a>
+                <button class="btn subtle" id="restartBtn" type="button">להתחיל מחדש</button>
+              </div>
+              <div class="thanks" id="thanksBox">
+                תודה שעשית את האבחון. התמדה בשיווק לא מתחילה מלעשות הכול. היא מתחילה מלעשות את הדבר הנכון הבא.<br>
+                עסק קטן צריך שיווק חכם.
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const SMART_BUSINESS_CARD_URL = "https://tali-digicard.vercel.app";
+    const LOGO_URL = "./logo.png";
+    const STORAGE_KEY = "taliMarketingDiagnosisState";
+
+    const domains = {
+      clarity: "בהירות",
+      overload: "פיזור ועומס",
+      system: "שיטה ועקביות",
+      execution: "ביצוע ומשאבים"
+    };
+
+    const questions = [
+      {
+        id: "q1",
+        type: "single",
+        note: "מתחילים בתמונה הכללית של השיווק כרגע.",
+        title: "מה הכי מתאר את השיווק שלך היום?",
+        options: [
+          { text: "אני לא תמיד יודע/ת מה נכון להגיד או להעלות", score: { clarity: 2 } },
+          { text: "אני מנסה להיות בהרבה מקומות וזה מתיש אותי", score: { overload: 2 }, flags: ["platformNoise"] },
+          { text: "אני מתחיל/ה, מפסיק/ה, ואז שוב מנסה לחזור", score: { system: 2 } },
+          { text: "אני יודע/ת בערך מה צריך לעשות, אבל קשה לי לבצע את זה בפועל", score: { execution: 2 }, flags: ["executionHard"] },
+          { text: "הכול קצת מעורבב לי כרגע", score: { clarity: 1, overload: 1, system: 1 } }
+        ]
+      },
+      {
+        id: "q2",
+        type: "multi",
+        note: "כאן בודקים איפה ההתמדה נהיית כבדה.",
+        title: "אילו פעולות שיווקיות הכי קשה לך להתמיד בהן?",
+        options: [
+          { text: "כתיבת פוסטים", score: { execution: 1, system: 1 } },
+          { text: "צילום רילסים / סרטונים", score: { execution: 2 }, flags: ["executionHard"] },
+          { text: "סטוריז", score: { system: 1 } },
+          { text: "ניוזלטרים / דיוור", score: { system: 1, execution: 1 } },
+          { text: "קמפיינים ממומנים", score: { clarity: 1, execution: 1 } },
+          { text: "פולואפ עם מתעניינים / לקוחות", score: { system: 1 } },
+          { text: "הכול מרגיש כבד כרגע", score: { overload: 1, execution: 2 }, flags: ["executionHard"] }
+        ]
+      },
+      {
+        id: "q3",
+        type: "single",
+        note: "התחושה הראשונה מספרת הרבה על מה שצריך לפשט.",
+        title: "כשאת/ה חושב/ת על שיווק, מה התחושה הראשונה שעולה?",
+        options: [
+          { text: "אין לי מושג מאיפה להתחיל", score: { clarity: 2 } },
+          { text: "יש יותר מדי דברים שצריך לעשות", score: { overload: 2 }, flags: ["platformNoise"] },
+          { text: "אני יודע/ת שצריך, אבל לא מצליח/ה לשמור על רצף", score: { system: 2 } },
+          { text: "זה לוקח לי יותר מדי זמן ואנרגיה", score: { execution: 2 }, flags: ["executionHard"] },
+          { text: "אני עושה, אבל לא בטוח/ה שזה עובד", score: { clarity: 1, system: 1 } }
+        ]
+      },
+      {
+        id: "q4",
+        type: "single",
+        note: "עכשיו מחדדים את הבהירות האסטרטגית.",
+        title: "עד כמה ברור לך למי השיווק שלך פונה?",
+        options: [
+          { text: "ברור לי מאוד", score: {} },
+          { text: "די ברור, אבל לא מספיק מדויק", score: { clarity: 1 } },
+          { text: "אני פונה לכמה קהלים וקשה לי לבחור", score: { clarity: 2, overload: 1 }, flags: ["platformNoise"] },
+          { text: "לא מספיק ברור לי", score: { clarity: 2 } },
+          { text: "זה משתנה כל הזמן לפי מה שאני מוכר/ת באותו רגע", score: { clarity: 1, system: 1 } }
+        ]
+      },
+      {
+        id: "q5",
+        type: "single",
+        note: "מסר ברור מקל על כל פעולה שיווקית אחריו.",
+        title: "עד כמה ברור לך מה המסר המרכזי של העסק?",
+        options: [
+          { text: "ברור לי ואני חוזר/ת עליו בעקביות", score: {} },
+          { text: "יש לי כיוון, אבל קשה לי לנסח אותו", score: { clarity: 2 } },
+          { text: "אני משנה אותו כל הזמן", score: { clarity: 1, system: 1 } },
+          { text: "אני בעיקר מתאר/ת מה אני עושה, לא תמיד למה שיבחרו דווקא בי", score: { clarity: 2 } },
+          { text: "לא בטוח/ה שיש לי מסר מרכזי", score: { clarity: 2 } }
+        ]
+      },
+      {
+        id: "q6",
+        type: "multi",
+        note: "כאן בודקים אם הפעולות נבחרו מתוך אסטרטגיה או מתוך לחץ.",
+        title: "למה בחרת בפעולות השיווקיות שאת/ה עושה היום?",
+        options: [
+          { text: "כי הקהל שלי באמת שם", score: {} },
+          { text: "כי כולם עושים את זה", score: { overload: 2 }, flags: ["platformNoise"] },
+          { text: "כי אמרו לי שזה חשוב", score: { overload: 1 } },
+          { text: "כי זה משרת מטרה ברורה בעסק", score: {} },
+          { text: "כי אני לא רוצה להיעלם", score: { system: 1 } },
+          { text: "כי אני לא באמת יודע/ת מה עדיף", score: { clarity: 1, overload: 1 } },
+          { text: "כי כבר התחלתי וקשה לי לשחרר", score: { overload: 1 }, flags: ["platformNoise"] }
+        ]
+      },
+      {
+        id: "q7",
+        type: "multi",
+        note: "השלב הזה מסתכל על מה שקורה בפועל, לא על מה שתכננת.",
+        title: "מה הכי קורה בפועל כשאת/ה מנסה לשווק?",
+        options: [
+          { text: "אני דוחה את זה", score: { execution: 1, system: 1 } },
+          { text: "אני עושה כמה ימים ואז נעלם/ת", score: { system: 2 } },
+          { text: "אני מתחיל/ה להכין משהו וזה נהיה גדול מדי", score: { execution: 2 }, flags: ["executionHard"] },
+          { text: "אני מעלה תוכן, אבל לא בטוח/ה שהוא מוביל לאנשהו", score: { clarity: 1, system: 1 } },
+          { text: "אני מתפזר/ת בין רעיונות ופלטפורמות", score: { overload: 2 }, flags: ["platformNoise"] },
+          { text: "אני משווה את עצמי לאחרים ונכנס/ת ללחץ", score: { overload: 1, execution: 1 } }
+        ]
+      },
+      {
+        id: "q8",
+        type: "single",
+        note: "שאלה קצרה על החוסר המרכזי כרגע.",
+        title: "מה הכי חסר לך כרגע כדי להתמיד בשיווק?",
+        options: [
+          { text: "בהירות לגבי המסר, הקהל וההצעה", score: { clarity: 3 } },
+          { text: "סדר עדיפויות והחלטה במה להתמקד", score: { overload: 3 } },
+          { text: "שיטה פשוטה שחוזרת על עצמה", score: { system: 3 } },
+          { text: "זמן, אנרגיה או עזרה בביצוע", score: { execution: 3 }, flags: ["executionHard"] },
+          { text: "קשה לי לבחור, אני צריך/ה קודם לעשות סדר כללי", score: { clarity: 1, overload: 1, system: 1, execution: 1 } }
+        ]
+      },
+      {
+        id: "q9",
+        type: "multi",
+        note: "עכשיו מחברים את האבחון לצעד של החודש הקרוב.",
+        title: "מה היית רוצה שיקרה בחודש הקרוב?",
+        options: [
+          { text: "להבין מה נכון לי להגיד בשיווק", score: { clarity: 1 } },
+          { text: "לבחור איפה להתמקד ולהפסיק להתפזר", score: { overload: 1 } },
+          { text: "לבנות שגרת תוכן פשוטה", score: { system: 1 } },
+          { text: "להוריד עומס ולהתחיל מפעולה קטנה", score: { execution: 1 } },
+          { text: "לקבל תוכנית שיווקית ברורה", score: { clarity: 1, system: 1 } },
+          { text: "להבין מה לעשות לבד ומה להוציא החוצה", score: { execution: 1 } }
+        ]
+      },
+      {
+        id: "q10",
+        type: "single",
+        note: "בחירה אחרונה: המשפט שהכי מדויק לך עכשיו.",
+        title: "איזה משפט הכי מדבר אליך?",
+        options: [
+          { text: "אני לא צריך/ה עוד רעיונות. אני צריך/ה להבין מה נכון לי להגיד.", score: { clarity: 2 } },
+          { text: "אני לא צריך/ה להיות בכל מקום. אני צריך/ה לבחור נכון.", score: { overload: 2 } },
+          { text: "אני לא צריך/ה להתחיל כל פעם מאפס. אני צריך/ה שיטה.", score: { system: 2 } },
+          { text: "אני לא צריך/ה לעשות הכול לבד. אני צריך/ה חלוקת עבודה נכונה.", score: { execution: 2 }, flags: ["executionHard"] },
+          { text: "אני צריך/ה רגע לעצור ולעשות סדר.", score: { clarity: 1, overload: 1 } }
+        ]
+      }
+    ];
+
+    const results = {
+      clarity: {
+        name: "בהירות שיווקית",
+        title: "האבחון שלך: חסרה לך בהירות שיווקית",
+        text: [
+          "נראה שהשיווק שלך לא תקוע כי אין לך רעיונות. הוא תקוע כי עוד לא מספיק ברור מה המסר המרכזי, למי בדיוק פונים, מה ההצעה, ולמה שיבחרו דווקא בך.",
+          "כשאין בהירות, כל פעולה שיווקית מרגישה כמו ניחוש: מה להעלות, איפה להיות, מה להגיד, ואיך לגרום לאנשים להבין למה זה רלוונטי אליהם.",
+          "לפעמים לא חסר עוד תוכן. חסרה בהירות שתהפוך את התוכן להרבה יותר מדויק."
+        ],
+        nextStep: "לפני עוד פוסט או עוד קמפיין, לחדד שלוש תשובות: למי אני רוצה לפנות? איזו בעיה אני פותר/ת? למה שיבחרו דווקא בי?",
+        remove: "פעולות שיווקיות שנעשות רק כדי לא להיעלם, בלי מסר ברור ובלי מטרה.",
+        week: "לכתוב משפט אחד פשוט: אני עוזר/ת ל-____ להשיג/לפתור ____ באמצעות ____."
+      },
+      overload: {
+        name: "פיזור ועומס",
+        title: "האבחון שלך: יש יותר מדי רעש בשיווק",
+        text: [
+          "נראה שהקושי המרכזי שלך הוא לא חוסר רצון, אלא יותר מדי כיוונים פתוחים בו זמנית.",
+          "עסק קטן לא צריך להיות בכל מקום. הוא צריך להיות במקום הנכון, עם המסר הנכון, בקצב שאפשר להחזיק.",
+          "לפעמים הדרך להתמיד לא מתחילה מלהוסיף. היא מתחילה מלהוריד."
+        ],
+        nextStep: "לבחור ערוץ שיווקי מרכזי אחד לחודש הקרוב. לא לנצח. רק לחודש. שם לשים את רוב האנרגיה.",
+        remove: "פלטפורמה, תדירות או סוג תוכן שנעשים רק כי צריך, אבל לא באמת משרתים מטרה ברורה.",
+        week: "לעשות רשימה של כל פעולות השיווק שלך ולסמן: חייב להישאר / אפשר לצמצם / אפשר להוריד כרגע."
+      },
+      system: {
+        name: "שיטה ועקביות",
+        title: "האבחון שלך: חסרה לך שיטה שאפשר להחזיק",
+        text: [
+          "נראה שיש לך כוונה לשווק, ואולי אפילו רעיונות, אבל אין עדיין מבנה פשוט שחוזר על עצמו.",
+          "כשאין שיטה, כל שבוע מתחיל מאפס. כשיש שיטה, השיווק ממשיך לזוז גם בקצב קטן.",
+          "התמדה לא דורשת השראה בלתי נגמרת. היא דורשת שיטה פשוטה שאפשר לחזור אליה."
+        ],
+        nextStep: "לבחור 3 עוגני תוכן קבועים שחוזרים על עצמם: שאלה מלקוחות, טעות נפוצה, מאחורי הקלעים, מיתוס, טיפ קצר או סיפור לקוח.",
+        remove: "הציפייה להמציא רעיון חדש לגמרי בכל פעם.",
+        week: "לבחור 3 עוגני תוכן ולכתוב ליד כל אחד 2 רעיונות. בסוף יהיו לך 6 רעיונות בלי להתחיל מאפס."
+      },
+      execution: {
+        name: "ביצוע ומשאבים",
+        title: "האבחון שלך: הגיע הזמן לפשט את הביצוע",
+        text: [
+          "נראה שהקושי המרכזי הוא לא בהכרח להבין ששיווק חשוב, אלא להוציא אותו לפועל בצורה שלא שוחקת אותך.",
+          "יכול להיות שהפעולה שבחרת נכונה תיאורטית, אבל כרגע היא דורשת יותר מדי זמן, אנרגיה, ביטחון מול מצלמה, כתיבה, עיצוב או ידע טכני.",
+          "המטרה היא לא לעשות הכול לבד. המטרה היא להבין מה נכון לך לעשות, ומה לא שווה את הזמן והאנרגיה שלך."
+        ],
+        nextStep: "לפשט פעולה אחת. במקום לשאול איך אני עושה יותר, לשאול איך אני עושה את זה קטן יותר, ברור יותר, ובצורה שבאמת יכולה לקרות.",
+        remove: "תוכנית ביצוע גדולה מדי, כמו יותר מדי רילסים, יותר מדי פלטפורמות, או תוכן שדורש יכולות שאין לך כרגע זמן או רצון לפתח לבד.",
+        week: "לבחור פעולה אחת פשוטה: פוסט אחד טוב בשבוע, סטורי אחד ביום עבודה, צילום 3 סרטונים ביום מרוכז, ניוזלטר אחד בחודש, שיחת פולואפ אחת בשבוע, או להעביר חלק מהביצוע לאיש מקצוע."
+      }
+    };
+
+    const state = {
+      current: 0,
+      answers: {},
+      resultKey: null,
+      details: {}
+    };
+
+    const screens = {
+      start: document.getElementById("startScreen"),
+      quiz: document.getElementById("quizScreen"),
+      result: document.getElementById("resultScreen")
+    };
+
+    const els = {
+      startBtn: document.getElementById("startBtn"),
+      questionCounter: document.getElementById("questionCounter"),
+      progressPercent: document.getElementById("progressPercent"),
+      progressBar: document.getElementById("progressBar"),
+      domainNote: document.getElementById("domainNote"),
+      questionTitle: document.getElementById("questionTitle"),
+      questionMeta: document.getElementById("questionMeta"),
+      optionsList: document.getElementById("optionsList"),
+      backBtn: document.getElementById("backBtn"),
+      nextBtn: document.getElementById("nextBtn"),
+      resultTitle: document.getElementById("resultTitle"),
+      resultBody: document.getElementById("resultBody"),
+      summaryName: document.getElementById("summaryName"),
+      summaryRemove: document.getElementById("summaryRemove"),
+      summaryWeek: document.getElementById("summaryWeek"),
+      detailsForm: document.getElementById("detailsForm"),
+      businessCardBtn: document.getElementById("businessCardBtn"),
+      headerCardLink: document.getElementById("headerCardLink"),
+      restartBtn: document.getElementById("restartBtn"),
+      thanksBox: document.getElementById("thanksBox"),
+      logoImage: document.getElementById("logoImage"),
+      logoFallback: document.getElementById("logoFallback"),
+      logoImages: document.querySelectorAll("[data-logo]"),
+      businessTypeSelect: document.getElementById("businessTypeSelect"),
+      otherBusinessWrap: document.getElementById("otherBusinessWrap"),
+      otherBusinessInput: document.getElementById("otherBusinessInput"),
+      contactInput: document.getElementById("contactInput"),
+      contactError: document.getElementById("contactError"),
+      selfWhatsappBtn: document.getElementById("selfWhatsappBtn")
+    };
+
+    function loadState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (!saved) return;
+        state.current = Number.isInteger(saved.current) ? saved.current : 0;
+        state.answers = saved.answers || {};
+        state.resultKey = saved.resultKey || null;
+        state.details = saved.details || {};
+      } catch (error) {
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function showScreen(name, shouldScroll = true) {
+      Object.values(screens).forEach((screen) => screen.classList.remove("active"));
+      screens[name].classList.add("active");
+      if (shouldScroll) {
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+    }
+
+    function resetToStartView() {
+      state.current = 0;
+      state.answers = {};
+      state.resultKey = null;
+      state.details = {};
+      localStorage.removeItem(STORAGE_KEY);
+      els.thanksBox.classList.remove("visible");
+      clearContactError();
+      els.detailsForm.reset();
+      syncOtherBusinessField(false);
+      showScreen("start", false);
+      window.scrollTo(0, 0);
+    }
+
+    function setupBrandLinks() {
+      els.businessCardBtn.href = SMART_BUSINESS_CARD_URL;
+      els.headerCardLink.href = SMART_BUSINESS_CARD_URL;
+      if (LOGO_URL.trim()) {
+        els.logoImages.forEach((logo) => {
+          logo.src = LOGO_URL;
+          logo.classList.add("visible");
+          logo.style.display = "block";
+        });
+        els.logoFallback.style.display = "none";
+      }
+    }
+
+    function syncOtherBusinessField(shouldClear = false) {
+      const isOther = els.businessTypeSelect.value === "אחר";
+      els.otherBusinessWrap.hidden = !isOther;
+      if (!isOther && shouldClear) {
+        els.otherBusinessInput.value = "";
+        delete state.details.otherBusinessType;
+      }
+    }
+
+    function getResolvedBusinessType() {
+      if (state.details.businessType === "אחר") {
+        return (state.details.otherBusinessType || "").trim();
+      }
+      return state.details.businessType || "";
+    }
+
+    function getResultMessage() {
+      const result = results[state.resultKey || pickResult()];
+      const businessType = getResolvedBusinessType();
+      const name = (state.details.fullName || "").trim();
+      const businessName = (state.details.businessName || "").trim();
+      const contact = (state.details.contact || "").trim();
+      const improve = (state.details.improve || "").trim();
+      const detailsLines = [
+        name ? `שם מלא: ${name}` : "",
+        businessName ? `שם העסק: ${businessName}` : "",
+        contact ? `מספר וואטסאפ: ${contact}` : "",
+        businessType ? `תחום פעילות העסק: ${businessType}` : "",
+        improve ? `מה הכי חשוב לשפר כרגע: ${improve}` : ""
+      ].filter(Boolean).join("\n");
+      const detailsBlock = detailsLines ? `\nפרטי העסק:\n${detailsLines}\n` : "";
+      const businessLine = businessType ? `\nתחום פעילות העסק:\n${businessType}\n` : "";
+
+      return `עשיתי את האבחון “שיווק שאפשר להתמיד בו” של טלי רוזנברג.
+
+האבחון שלי:
+${result.name}
+${detailsBlock || businessLine}
+סיכום קצר:
+${result.text[0]}
+
+הפעולה החכמה שלי ל-7 הימים הקרובים:
+${result.week}
+
+מה כדאי לי להוריד כרגע:
+${result.remove}
+
+משפט לזכור:
+עסק קטן צריך שיווק חכם - לא עוד משימות.`;
+    }
+
+    function normalizeWhatsappNumber(value) {
+      let cleaned = value.trim().replace(/[^\d+]/g, "");
+      if (cleaned.startsWith("+")) cleaned = cleaned.slice(1);
+      if (cleaned.startsWith("00972")) cleaned = cleaned.slice(2);
+      if (/^05\d{8}$/.test(cleaned)) return `972${cleaned.slice(1)}`;
+      if (/^5\d{8}$/.test(cleaned)) return `972${cleaned}`;
+      if (/^9725\d{8}$/.test(cleaned)) return cleaned;
+      return "";
+    }
+
+    function showContactError(message) {
+      els.contactError.textContent = message;
+      els.contactError.classList.add("visible");
+    }
+
+    function clearContactError() {
+      els.contactError.textContent = "";
+      els.contactError.classList.remove("visible");
+    }
+
+    function openWhatsappToSelf() {
+      saveDetailsFromForm();
+      const phone = normalizeWhatsappNumber(els.contactInput.value);
+      if (!phone) {
+        showContactError("כדי לשלוח את האבחון לעצמך בוואטסאפ, צריך להזין מספר וואטסאפ תקין.");
+        return;
+      }
+      clearContactError();
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(getResultMessage())}`;
+      window.open(url, "_blank", "noopener");
+      els.thanksBox.classList.add("visible");
+    }
+
+    function getAnswer(questionId) {
+      return state.answers[questionId] || [];
+    }
+
+    function renderQuestion({ shouldScroll = true } = {}) {
+      const question = questions[state.current];
+      const selected = getAnswer(question.id);
+      const progress = Math.round(((state.current + 1) / questions.length) * 100);
+
+      els.questionCounter.textContent = `שאלה ${state.current + 1} מתוך ${questions.length}`;
+      els.progressPercent.textContent = `${progress}%`;
+      els.progressBar.style.width = `${progress}%`;
+      els.domainNote.textContent = question.note;
+      els.questionTitle.textContent = question.title;
+      els.questionMeta.textContent = question.type === "multi" ? "אפשר לבחור יותר מתשובה אחת" : "בחר/י תשובה אחת";
+      els.optionsList.innerHTML = "";
+
+      question.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `option ${question.type === "multi" ? "multi" : ""}`;
+        button.setAttribute("aria-pressed", selected.includes(index) ? "true" : "false");
+        if (selected.includes(index)) button.classList.add("selected");
+
+        const mark = document.createElement("span");
+        mark.className = "mark";
+        mark.textContent = "✓";
+
+        const text = document.createElement("span");
+        text.className = "option-text";
+        text.textContent = option.text;
+
+        button.append(mark, text);
+        button.addEventListener("click", () => chooseOption(index));
+        els.optionsList.appendChild(button);
+      });
+
+      els.backBtn.disabled = state.current === 0;
+      els.nextBtn.disabled = selected.length === 0;
+      els.nextBtn.textContent = state.current === questions.length - 1 ? "לקבלת האבחון שלי" : "הבא";
+      showScreen("quiz", shouldScroll);
+    }
+
+    function updateCurrentQuestionControls() {
+      const question = questions[state.current];
+      const selected = getAnswer(question.id);
+
+      els.optionsList.querySelectorAll(".option").forEach((button, index) => {
+        const isSelected = selected.includes(index);
+        button.classList.toggle("selected", isSelected);
+        button.setAttribute("aria-pressed", isSelected ? "true" : "false");
+      });
+
+      els.nextBtn.disabled = selected.length === 0;
+    }
+
+    function chooseOption(index) {
+      const currentScroll = window.scrollY;
+      const question = questions[state.current];
+      const current = getAnswer(question.id);
+      if (question.type === "single") {
+        state.answers[question.id] = [index];
+      } else if (current.includes(index)) {
+        state.answers[question.id] = current.filter((item) => item !== index);
+      } else {
+        state.answers[question.id] = [...current, index];
+      }
+      saveState();
+      updateCurrentQuestionControls();
+      window.requestAnimationFrame(() => window.scrollTo(0, currentScroll));
+      window.setTimeout(() => window.scrollTo(0, currentScroll), 80);
+    }
+
+    function calculateScores() {
+      const scores = { clarity: 0, overload: 0, system: 0, execution: 0 };
+      const flags = { platformNoise: 0, executionHard: 0 };
+
+      questions.forEach((question) => {
+        getAnswer(question.id).forEach((optionIndex) => {
+          const option = question.options[optionIndex];
+          Object.entries(option.score).forEach(([key, value]) => {
+            scores[key] += value;
+          });
+          (option.flags || []).forEach((flag) => {
+            flags[flag] += 1;
+          });
+        });
+      });
+
+      return { scores, flags };
+    }
+
+    function pickResult() {
+      const { scores, flags } = calculateScores();
+      const maxScore = Math.max(...Object.values(scores));
+      const tied = Object.keys(scores).filter((key) => scores[key] === maxScore);
+
+      if (tied.length === 1) return tied[0];
+      if (tied.includes("clarity")) return "clarity";
+      if (tied.includes("overload") && tied.includes("system") && flags.platformNoise >= 2) return "overload";
+      if (tied.includes("execution") && tied.includes("system") && flags.executionHard >= 1) return "execution";
+      return ["clarity", "overload", "system", "execution"].find((key) => tied.includes(key));
+    }
+
+    function launchResultConfetti() {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const existingLayer = document.querySelector(".confetti-layer");
+      if (existingLayer) existingLayer.remove();
+
+      const layer = document.createElement("div");
+      layer.className = "confetti-layer";
+      layer.setAttribute("aria-hidden", "true");
+      document.body.appendChild(layer);
+
+      const colors = ["#17324d", "#b97882", "#d9a0a7", "#8da69b", "#f5e4e5"];
+      const dotCount = 58;
+
+      for (let index = 0; index < dotCount; index += 1) {
+        const dot = document.createElement("span");
+        dot.className = "confetti-dot";
+        const size = Math.round(6 + Math.random() * 8);
+        const drift = Math.round((Math.random() - 0.5) * 130);
+        dot.style.left = `${Math.random() * 100}%`;
+        dot.style.setProperty("--dot-size", `${size}px`);
+        dot.style.setProperty("--dot-color", colors[index % colors.length]);
+        dot.style.setProperty("--drift", `${drift}px`);
+        dot.style.setProperty("--fall-duration", `${1.5 + Math.random() * 1.1}s`);
+        dot.style.animationDelay = `${Math.random() * 0.34}s`;
+        layer.appendChild(dot);
+      }
+
+      window.setTimeout(() => layer.remove(), 3200);
+    }
+
+    function renderResult({ celebrate = false } = {}) {
+      state.resultKey = pickResult();
+      saveState();
+      const result = results[state.resultKey];
+
+      els.resultTitle.textContent = result.title;
+      els.resultBody.innerHTML = `
+        <div class="result-blocks">
+          <section class="result-block">
+            <h3>מה כנראה קורה כרגע</h3>
+            ${result.text.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+          </section>
+          <section class="result-block">
+            <h3>הצעד החכם שלך לחודש הקרוב</h3>
+            <p>${result.nextStep}</p>
+          </section>
+          <section class="result-block">
+            <h3>מה כדאי להוריד כרגע</h3>
+            <p>${result.remove}</p>
+          </section>
+          <section class="result-block">
+            <h3>פעולה קטנה ל-7 הימים הקרובים</h3>
+            <p>${result.week}</p>
+          </section>
+        </div>
+      `;
+      els.summaryName.textContent = result.name;
+      els.summaryRemove.textContent = result.remove;
+      els.summaryWeek.textContent = result.week;
+      fillDetailsForm();
+      showScreen("result");
+      if (celebrate) {
+        window.setTimeout(launchResultConfetti, 260);
+      }
+    }
+
+    function fillDetailsForm() {
+      Array.from(els.detailsForm.elements).forEach((field) => {
+        if (field.name && state.details[field.name] !== undefined) {
+          field.value = state.details[field.name];
+        }
+      });
+      syncOtherBusinessField(false);
+    }
+
+    function saveDetailsFromForm() {
+      const data = new FormData(els.detailsForm);
+      state.details = Object.fromEntries(data.entries());
+      if (state.details.businessType !== "אחר") {
+        delete state.details.otherBusinessType;
+      }
+      saveState();
+    }
+
+    function restart() {
+      resetToStartView();
+    }
+
+    els.startBtn.addEventListener("click", () => {
+      state.current = 0;
+      state.answers = {};
+      state.resultKey = null;
+      state.details = {};
+      localStorage.removeItem(STORAGE_KEY);
+      els.thanksBox.classList.remove("visible");
+      clearContactError();
+      els.detailsForm.reset();
+      syncOtherBusinessField(false);
+      saveState();
+      renderQuestion();
+    });
+
+    els.nextBtn.addEventListener("click", () => {
+      if (els.nextBtn.disabled) return;
+      if (state.current < questions.length - 1) {
+        state.current += 1;
+        saveState();
+        renderQuestion();
+      } else {
+        renderResult({ celebrate: true });
+      }
+    });
+
+    els.backBtn.addEventListener("click", () => {
+      if (state.current > 0) {
+        state.current -= 1;
+        saveState();
+        renderQuestion();
+      }
+    });
+
+    els.detailsForm.addEventListener("input", saveDetailsFromForm);
+    els.detailsForm.addEventListener("change", saveDetailsFromForm);
+    els.businessTypeSelect.addEventListener("change", () => {
+      syncOtherBusinessField(true);
+      saveDetailsFromForm();
+    });
+    els.contactInput.addEventListener("input", clearContactError);
+    els.selfWhatsappBtn.addEventListener("click", openWhatsappToSelf);
+    els.businessCardBtn.addEventListener("click", () => {
+      saveDetailsFromForm();
+      els.thanksBox.classList.add("visible");
+    });
+    els.restartBtn.addEventListener("click", restart);
+
+    setupBrandLinks();
+    resetToStartView();
+    window.addEventListener("pageshow", resetToStartView);
+  </script>
+</body>
+</html>
