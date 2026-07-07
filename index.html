@@ -80,42 +80,6 @@
       background: rgba(255, 253, 249, 0.72);
     }
 
-    .screen-logo {
-      display: none;
-      width: min(170px, 46vw);
-      height: auto;
-      margin: 0 0 16px;
-      object-fit: contain;
-      border-radius: 18px;
-      background: rgba(255, 253, 249, 0.78);
-    }
-
-    .screen-logo.visible {
-      display: block;
-    }
-
-    .screen-logo.compact {
-      width: 112px;
-      margin: 0;
-    }
-
-    .quiz-brand-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .quiz-brand-row {
-      justify-content: space-between;
-      margin-bottom: 18px;
-    }
-
-    .quiz-brand-text {
-      color: var(--ink);
-      font-size: 14px;
-      font-weight: 800;
-    }
-
     .logo-fallback {
       display: grid;
       place-items: center;
@@ -320,8 +284,24 @@
     .btn.subtle {
       color: var(--ink-soft);
       background: transparent;
-      border: 1px solid rgba(23, 50, 77, 0.16);
+      border: 1px solid rgba(23, 50, 77, 0.1);
       box-shadow: none;
+      font-weight: 700;
+    }
+
+    .btn.subtle:hover,
+    .btn.subtle:focus-visible {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.38);
+      box-shadow: none;
+    }
+
+    .card-bridge {
+      margin: 18px 0 0;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.55;
     }
 
     .btn[disabled] {
@@ -804,7 +784,7 @@
           <p class="brand-line">שיווק דיגיטלי חכם לעסקים קטנים</p>
         </div>
       </div>
-      <a class="header-card-link" id="headerCardLink" href="#" target="_blank" rel="noopener">להכיר את טלי</a>
+      <a class="header-card-link" id="headerCardLink" href="#" target="_blank" rel="noopener">מי זו טלי?</a>
     </header>
 
     <section class="surface" aria-live="polite">
@@ -824,10 +804,6 @@
       </div>
 
       <div class="screen" id="quizScreen">
-        <div class="quiz-brand-row" aria-label="טלי רוזנברג">
-          <img class="screen-logo compact" data-logo alt="טלי רוזנברג">
-          <span class="quiz-brand-text">שיווק דיגיטלי חכם לעסקים קטנים</span>
-        </div>
         <div class="progress-wrap">
           <div class="progress-row">
             <span id="questionCounter">שאלה 1 מתוך 10</span>
@@ -854,7 +830,7 @@
       <div class="screen" id="resultScreen">
         <div class="result-layout">
           <section class="result-panel accent">
-            <p class="eyebrow">הנה האבחון שלך</p>
+            <p class="eyebrow">האבחון שלך מוכן</p>
             <h2 id="resultTitle"></h2>
             <div id="resultBody"></div>
           </section>
@@ -928,10 +904,11 @@
                   </select>
                 </label>
               </div>
-              <p class="fine-print">אין כאן חיבור למערכת דיוור או Backend. המספר שהזנת משמש רק לפתיחת הודעת וואטסאפ עם סיכום האבחון עבורך, ולא נשלח לטלי אוטומטית.</p>
+              <p class="fine-print">המספר שהזנת משמש רק לפתיחת הודעת וואטסאפ עם סיכום האבחון עבורך. הוא לא נשמר ולא נשלח לטלי אוטומטית.</p>
+              <p class="card-bridge">רוצה להבין איך להפוך את זה לתוכנית שיווקית שמתאימה לעסק שלך? אפשר להמשיך מכאן לכרטיס של טלי.</p>
               <div class="actions">
-                <button class="btn primary" id="selfWhatsappBtn" type="button">שליחת האבחון לעצמי בוואטסאפ</button>
-                <a class="btn ghost" id="businessCardBtn" href="#" target="_blank" rel="noopener">להיכרות נוספת עם טלי</a>
+                <button class="btn primary" id="selfWhatsappBtn" type="button">שליחה לעצמי בוואטסאפ</button>
+                <a class="btn ghost" id="businessCardBtn" href="#" target="_blank" rel="noopener">מי זו טלי?</a>
                 <button class="btn subtle" id="restartBtn" type="button">להתחיל מחדש</button>
               </div>
               <div class="thanks" id="thanksBox">
